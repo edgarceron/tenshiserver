@@ -9,14 +9,11 @@ class ImageViewSet(ListAPIView):
     queryset = UploadImage.objects.all()
     serializer_class = ImageSerializer
 
-    def post(self, request, *args, **kwargs):
+    def post(self, request):
         file = request.data['file']
         image = UploadImage.objects.create(image=file)
         image_relative = str(image.image)
         return HttpResponse(
             json.dumps({
-                'min': str(mindistance),
-                'person': person,
-                'eye': eye,
                 "route": str(image_relative)
-            }), status=200)
+            }), status=201)
