@@ -2,8 +2,6 @@ FROM python:3.7-buster
 
 RUN apt-get update && apt-get install vim -y --no-install-recommends
 RUN pip install gunicorn
-RUN ln -sf /dev/stdout /var/log/nginx/access.log \
-    && ln -sf /dev/stderr /var/log/nginx/error.log
 
 RUN mkdir -p /app
 RUN mkdir -p /app/static
@@ -16,8 +14,6 @@ RUN pip install -r requirements.txt --cache-dir /app/pip_cache
 
 COPY . .
 RUN python3 manage.py makemigrations
-
-COPY buildfiles/nginx.default /etc/nginx/sites-available/default
 
 RUN chown -R www-data:www-data /app
 
