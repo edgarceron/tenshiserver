@@ -41,7 +41,7 @@ services:
       DATABASE_HOST: db
     restart: always
     build:
-      dockerfile: ./Containerfile
+      dockerfile: Containerfile
     ports: ["8010:8010"]
     depends_on:
       - migration

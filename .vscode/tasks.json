@@ -6,7 +6,7 @@
         {
             "label": "rundb",
             "type": "shell",
-            "command": "docker-compose start"
+            "command": "docker compose up"
         }
     ]
 }
