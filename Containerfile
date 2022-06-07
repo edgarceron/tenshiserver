@@ -23,4 +23,4 @@ EXPOSE 8080
 STOPSIGNAL SIGTERM
 RUN chmod 777 /app/tenshi/buildfiles/start_server.sh
 RUN chmod 777 /app/tenshi/buildfiles/wait-for-it.sh
-CMD ["/opt/app/bpmnus/buildfiles/start_server.sh"]
+CMD ["/app/tenshi/buildfiles/start_server.sh"]
