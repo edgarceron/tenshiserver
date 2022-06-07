@@ -1,7 +1,4 @@
-# version: '3.1'
-
 services:
-
   db:
     container_name: db
     image: postgres
@@ -15,6 +12,8 @@ services:
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U tenshiapp"]
       interval: 5s
+    networks:
+      - tenshinet
     ports:
       - 5432:5432
   migration:
@@ -24,13 +23,32 @@ services:
     depends_on:
       db:
         condition: service_healthy
+    environment:
+      DATABASE_NAME: tenshiapp
+      DATABASE_USERNAME: tenshiapp
+      DATABASE_PASSWORD: tenshiapp
+      DATABASE_PORT: 5432
+      DATABASE_HOST: db
+    networks:
+      - tenshinet
   app:
     container_name: app
+    environment:
+      DATABASE_NAME: tenshiapp
+      DATABASE_USERNAME: tenshiapp
+      DATABASE_PASSWORD: tenshiapp
+      DATABASE_PORT: 5432
+      DATABASE_HOST: db
     restart: always
     build:
       dockerfile: ./Containerfile
+    ports: ["8010:8010"]
     depends_on:
       - migration
       - db
     volumes:
       - .:/tenshi
+    networks:
+      - tenshinet
+networks:
+  tenshinet:
