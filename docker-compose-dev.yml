@@ -1,0 +1,21 @@
+services:
+  db:
+    container_name: db
+    image: postgres
+    restart: always
+    environment:
+        POSTGRES_USER: tenshiapp
+        POSTGRES_PASSWORD: tenshiapp
+        POSTGRES_DB: tenshiapp
+    volumes:
+      - /var/lib/postgresql/data/
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U tenshiapp"]
+      interval: 5s
+    networks:
+      - tenshinet
+    ports:
+      - 5432:5432
+
+networks:
+  tenshinet:
