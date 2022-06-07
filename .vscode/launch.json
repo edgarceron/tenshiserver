@@ -6,7 +6,7 @@
     "configurations": [
         {
             "cwd": "${workspaceFolder}",
-            "preLaunchTask": "rundb",
+            "preLaunchTask": "development",
             "name": "django",
             "type": "python",
             "request": "launch",
