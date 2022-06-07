@@ -4,7 +4,7 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "rundb",
+            "label": "development",
             "type": "shell",
             "command": "docker compose -f docker-compose-dev.yml up -d"
         }
