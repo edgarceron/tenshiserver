@@ -14,11 +14,16 @@ services:
       - /var/lib/postgresql/data/
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U tenshiapp"]
-      interval: 8s
-      timeout: 10s
-      retries: 5
+      interval: 5s
     ports:
       - 5432:5432
+  migration:
+    command: python3 manage.py migrate --no-input
+    build:
+      dockerfile: Containerfile
+    depends_on:
+      db:
+        condition: service_healthy
   app:
     container_name: app
     restart: always
@@ -27,8 +32,7 @@ services:
     ports:
       - 8000:8000
     depends_on:
+      - migration
       - db
     volumes:
       - .:/tenshi
-    links:
-      - db
