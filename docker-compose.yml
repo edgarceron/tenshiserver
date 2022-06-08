@@ -29,6 +29,8 @@ services:
       DATABASE_PASSWORD: tenshiapp
       DATABASE_PORT: 5432
       DATABASE_HOST: db
+      DJANGO_SUPERUSER_USERNAME: admin
+      DJANGO_SUPERUSER_PASSWORD: admin
     networks:
       - tenshinet
   app:
@@ -39,10 +41,13 @@ services:
       DATABASE_PASSWORD: tenshiapp
       DATABASE_PORT: 5432
       DATABASE_HOST: db
+      DJANGO_SUPERUSER_USERNAME: admin
+      DJANGO_SUPERUSER_PASSWORD: admin
+      DJANGO_SUPERUSER_EMAIL: admin@example.com
     restart: always
     build:
       dockerfile: Containerfile
-    ports: ["8010:8080"]
+    ports: ["8080:8080"]
     depends_on:
       - migration
       - db
