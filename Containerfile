@@ -2,7 +2,7 @@ FROM python:3.10.5-buster
 
 RUN apt-get update && apt-get install vim gcc python3-dev libpq-dev postgresql postgresql-contrib -y --no-install-recommends
 RUN pip install gunicorn
-
+RUN mkdir -p /opt/media
 RUN mkdir -p /app
 RUN mkdir -p /app/static
 RUN mkdir -p /app/pip_cache
