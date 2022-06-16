@@ -1,3 +1,6 @@
-*/migrations/
+# */migrations/
 .git
 .cache
+__pycache__
+.vscode
+*.pyc

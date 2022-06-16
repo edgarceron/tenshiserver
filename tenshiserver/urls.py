@@ -20,8 +20,8 @@ from django.urls import include
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('authentication/', include('authentication.urls')),
-    path('media/', include('media.urls')),
-    re_path(r'^auth/', include('drf_social_oauth2.urls', namespace='drf'))
+    path("admin/", admin.site.urls),
+    path("authentication/", include("authentication.urls")),
+    path("media/", include("media.urls")),
+    re_path(r"^auth/", include("drf_social_oauth2.urls", namespace="drf")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
