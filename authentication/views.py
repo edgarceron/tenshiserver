@@ -4,6 +4,7 @@ from django.views.decorators.http import require_POST
 from django.views.decorators.csrf import ensure_csrf_cookie
 from django.http import JsonResponse
 
+
 @ensure_csrf_cookie
 def set_csrf_token(request):
     """
@@ -18,14 +19,13 @@ def login_view(request):
     This will be `/api/login/` on `urls.py`
     """
     data = json.loads(request.body)
-    username = data.get('username')
-    password = data.get('password')
+    username = data.get("username")
+    password = data.get("password")
     if username is None or password is None:
-        return JsonResponse({
-            "errors": {
-                "__all__": "Please enter both username and password"
-            }
-        }, status=400)
+        return JsonResponse(
+            {"errors": {"__all__": "Please enter both username and password"}},
+            status=400,
+        )
     user = authenticate(username=username, password=password)
     if user is not None:
         login(request, user)

@@ -2,22 +2,22 @@ services:
   db:
     container_name: db
     image: postgres
-    restart: always
+    restart: unless-stopped
     environment:
         POSTGRES_USER: tenshiapp
         POSTGRES_PASSWORD: tenshiapp
         POSTGRES_DB: tenshiapp
     volumes:
-      - /var/lib/postgresql/data/
+      - ./db:/var/lib/postgresql/data/
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U tenshiapp"]
-      interval: 5s
+      interval: 4s
     networks:
       - tenshinet
     ports:
       - 5432:5432
   migration:
-    command: python3 manage.py migrate --no-input
+    command: python manage.py migrate --no-input
     build:
       dockerfile: Containerfile
     depends_on:

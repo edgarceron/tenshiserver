@@ -1,7 +1,9 @@
 from django.db import models
 
+
 def nameFile(instance, filename):
-    return '/'.join(['images', str(instance.name), filename])
+    return "/".join(["images", str(instance.name), filename])
+
 
 class UploadImage(models.Model):
     name = models.CharField(max_length=100)

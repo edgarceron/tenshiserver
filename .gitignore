@@ -8,3 +8,14 @@ venv.bak/
 
 *.pyc
 __pycache__/
+db
+*.code-workspace
+.history
+.ionide
+*.vsix
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets

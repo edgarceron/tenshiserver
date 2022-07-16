@@ -4,8 +4,8 @@ RUN apt-get update && apt-get install vim gcc python3-dev libpq-dev postgresql p
 RUN pip install gunicorn
 
 RUN mkdir -p /app
+RUN mkdir -p /app/media
 RUN mkdir -p /app/static
-RUN mkdir -p /app/pip_cache
 RUN mkdir -p /app/tenshi
 
 COPY ./requirements.txt /app/tenshi
@@ -16,7 +16,8 @@ RUN \
  apt-get autoremove gcc libpq-dev python3-dev postgresql postgresql-contrib -y
 
 COPY . .
-RUN python3 manage.py makemigrations
+RUN python manage.py collectstatic --noinput
+RUN python manage.py makemigrations
 RUN chown -R www-data:www-data /app
 
 STOPSIGNAL SIGTERM
