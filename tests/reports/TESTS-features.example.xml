@@ -1,0 +1,89 @@
+<testsuite errors="4" failures="0" hostname="ITs-MacBook-Pro.local" name="features.example.Upload a pet image" skipped="0" tests="4" time="0.001309" timestamp="2022-07-18T13:28:10.247021"><testcase classname="features.example.Upload a pet image" name="Upload a picture for a Cat -- @1.1 Images" status="failed" time="0.000871"><error message="step_given_send_request_with_image() got an unexpected keyword argument 'file'" type="TypeError">
+<![CDATA[
+Failing step: Given I send a request with authentication and the image my_cat.jpg ... failed in 0.001s
+Location: tests/acceptance/features/example.feature:5
+Traceback (most recent call last):
+  File "/Users/edgarceron/tenshiserver/env/lib/python3.7/site-packages/behave/model.py", line 1329, in run
+    match.run(runner.context)
+  File "/Users/edgarceron/tenshiserver/env/lib/python3.7/site-packages/behave/matchers.py", line 98, in run
+    self.func(context, *args, **kwargs)
+TypeError: step_given_send_request_with_image() got an unexpected keyword argument 'file'
+]]>
+</error><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario Outline: Upload a picture for a Cat -- @1.1 Images
+    Given I send a request with authentication and the image my_cat.jpg ... failed in 0.001s
+    When the authentication is correct and the image data is no over 5MB ... skipped in 0.000s
+    Then it should upload the image to the server and make it only avaible for the user. ... undefined in 0.000s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="features.example.Upload a pet image" name="Upload a picture for a Cat -- @1.2 Images" status="failed" time="0.000143"><error message="step_given_send_request_with_image() got an unexpected keyword argument 'file'" type="TypeError">
+<![CDATA[
+Failing step: Given I send a request with authentication and the image my_dog.png ... failed in 0.000s
+Location: tests/acceptance/features/example.feature:5
+Traceback (most recent call last):
+  File "/Users/edgarceron/tenshiserver/env/lib/python3.7/site-packages/behave/model.py", line 1329, in run
+    match.run(runner.context)
+  File "/Users/edgarceron/tenshiserver/env/lib/python3.7/site-packages/behave/matchers.py", line 98, in run
+    self.func(context, *args, **kwargs)
+TypeError: step_given_send_request_with_image() got an unexpected keyword argument 'file'
+]]>
+</error><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario Outline: Upload a picture for a Cat -- @1.2 Images
+    Given I send a request with authentication and the image my_dog.png ... failed in 0.000s
+    When the authentication is correct and the image data is no over 5MB ... skipped in 0.000s
+    Then it should upload the image to the server and make it only avaible for the user. ... undefined in 0.000s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="features.example.Upload a pet image" name="Upload a picture for a Cat -- @2.1 Other file types" status="failed" time="0.000145"><error message="step_given_send_request_with_image() got an unexpected keyword argument 'file'" type="TypeError">
+<![CDATA[
+Failing step: Given I send a request with authentication and the image receipt.txt ... failed in 0.000s
+Location: tests/acceptance/features/example.feature:5
+Traceback (most recent call last):
+  File "/Users/edgarceron/tenshiserver/env/lib/python3.7/site-packages/behave/model.py", line 1329, in run
+    match.run(runner.context)
+  File "/Users/edgarceron/tenshiserver/env/lib/python3.7/site-packages/behave/matchers.py", line 98, in run
+    self.func(context, *args, **kwargs)
+TypeError: step_given_send_request_with_image() got an unexpected keyword argument 'file'
+]]>
+</error><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario Outline: Upload a picture for a Cat -- @2.1 Other file types
+    Given I send a request with authentication and the image receipt.txt ... failed in 0.000s
+    When the authentication is correct and the image data is no over 5MB ... skipped in 0.000s
+    Then it should upload the image to the server and make it only avaible for the user. ... undefined in 0.000s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="features.example.Upload a pet image" name="Upload a picture for a Cat -- @2.2 Other file types" status="failed" time="0.00015"><error message="step_given_send_request_with_image() got an unexpected keyword argument 'file'" type="TypeError">
+<![CDATA[
+Failing step: Given I send a request with authentication and the image financ.xlsx ... failed in 0.000s
+Location: tests/acceptance/features/example.feature:5
+Traceback (most recent call last):
+  File "/Users/edgarceron/tenshiserver/env/lib/python3.7/site-packages/behave/model.py", line 1329, in run
+    match.run(runner.context)
+  File "/Users/edgarceron/tenshiserver/env/lib/python3.7/site-packages/behave/matchers.py", line 98, in run
+    self.func(context, *args, **kwargs)
+TypeError: step_given_send_request_with_image() got an unexpected keyword argument 'file'
+]]>
+</error><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario Outline: Upload a picture for a Cat -- @2.2 Other file types
+    Given I send a request with authentication and the image financ.xlsx ... failed in 0.000s
+    When the authentication is correct and the image data is no over 5MB ... skipped in 0.000s
+    Then it should upload the image to the server and make it only avaible for the user. ... undefined in 0.000s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase></testsuite>

@@ -4,8 +4,7 @@ Feature: Upload a pet image
     Scenario Outline: Upload a picture for a Cat
         Given I send a request with authentication and the image <file>
         When the authentication is correct and the image data is no over 5MB
-        Then it should upload the image to the server and make it only avaible for 
-        the user.
+        Then it should upload the image to the server and make it only avaible for the user.
 
         Examples: Images
         | file        | response         |
