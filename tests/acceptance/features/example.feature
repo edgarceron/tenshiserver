@@ -4,15 +4,22 @@ Feature: Upload a pet image
     Scenario Outline: Upload a picture for a Cat
         Given I send a request with authentication and the image <file>
         When the authentication is correct and the image data is no over 5MB
-        Then it should upload the image to the server and make it only avaible for the user.
+        Then it should upload the image to the server and it should response with a <status> code
 
-        Examples: Images
-        | file        | response         |
-        | my_cat.jpg  | 201 Created      |
-        | my_dog.png  | 201 Created      |
+        Examples:
+        | file        | status |
+        | my_cat.jpg  | 201    |
+        | my_dog.png  | 201    |
 
-        Examples: Other file types
-        | file        |   response       |
-        | receipt.txt |  400 Bad request |
-        | financ.xlsx |  400 Bad request |
+
+    Scenario Outline: Fail upload a picture for a Cat
+        Given I send a request without a valid image <file>
+        When the authentication is correct and the data is not an image
+        Then it shouldn't upload the file to the server and it should response with a <status> code
+
+        Examples:
+        | file             | status |
+        | not_an_image.txt | 401    |
+        | not_an_image.txt | 401    |
+
 
